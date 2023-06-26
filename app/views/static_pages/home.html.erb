@@ -1,0 +1,5 @@
+<% if current_user.present?  %>
+    <%= render "shared/list_blog" %>
+<% else %>
+    <p>Please login to use the service !</p>
+<% end %>

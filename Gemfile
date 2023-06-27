@@ -73,4 +73,4 @@ end
 gem "devise", "~> 4.1"
 gem "ransack"
 gem "will_paginate"
-
+gem "i18n"

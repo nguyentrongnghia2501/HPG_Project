@@ -4,12 +4,26 @@
       <table>
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Active</th>
+            <th>
+              <%= sort_link(@q, :id, 'ID') %>
+            </th>
+            <th>
+              <%= sort_link(@q, :title, 'Title') %>
+            </th>
+            <th>
+              <%= sort_link(@q, :description, 'Description') %>
+            </th>
+            <th>
+              <%= sort_link(@q, :active, 'Active') %>
+            </th>
             <th>Poster</th>
             <th>Function</th>
+            <th>
+              <%= search_form_for @q, url: root_path, class: "d-flex" do |f| %>
+                <%= f.search_field :title_cont, class: "form-control me-2", placeholder: "Search", aria: { label: "Search" } %>
+                <%= f.submit "Search", class: "btn btn-outline-success", type: "submit" %>
+              <% end %>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +60,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= will_paginate @blogs %>
     </div>
   </div>
 </div>

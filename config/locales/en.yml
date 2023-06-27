@@ -30,5 +30,25 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  message:
+  views:
+    title_new: "New BLog"
+    setting: "Setting"
+    home: "Home"
+    blog:
+      id: "id"
+      title: "title"
+      description: "active"
+      active: "Active"
+      poster: "Poster"
+      function: "Function"
+    message:
       hello: "Hello world"
+  notice:
+    blogs_create:
+      success: "Blog was successfully created"
+    blogs_update:
+      success: "Blog was successfully updated"
+      permission : "You do not have permission to edit this blog"
+    blogs_destroy:
+      success: "Blog was successfully destroyed"
+      permission: "you do not have permission to delete this blog"

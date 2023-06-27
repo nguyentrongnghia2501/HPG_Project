@@ -1,0 +1,1 @@
+<%= current_user.present? ? render("shared/list_blog") : content_tag(:p, "Please login to use the service !") %>

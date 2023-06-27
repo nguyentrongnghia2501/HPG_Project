@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <%= sort_link(@q, :id, 'ID') %>
+            </th>
+            <th>
+              <%= sort_link(@q, :title, 'Title') %>
+            </th>
+            <th>
+              <%= sort_link(@q, :description, 'Description') %>
+            </th>
+            <th>
+              <%= sort_link(@q, :active, 'Active') %>
+            </th>
+            <th>
+              <span>
+                <%= I18n.t("views.blog.poster")%>
+              </span>
+            </th>
+            <th>
+              <span>
+                <%= I18n.t("views.blog.function")%>
+              </span>
+            </th>
+            <th>
+              <%= search_form_for @q, url: root_path, class: "d-flex" do |f| %>
+                <%= f.search_field :title_cont, class: "form-control me-2", placeholder: "Search", aria: { label: "Search" } %>
+                <%= f.submit "Search", class: "btn btn-outline-success", type: "submit" %>
+              <% end %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @blogs.each do |blog| %>
+            <tr>
+              <td><%= blog.id %></td>
+              <td><%= blog.title %></td>
+              <td><%= blog.description %></td>
+              <td>
+                  <% if blog.active %>
+                    <i class="fa-solid fa-earth-americas"></i>
+                  <% else %>
+                    <i class="fa-solid fa-lock"></i>
+                  <% end %>
+              </td>
+              <td><%= display_user_email(blog) %></td>
+              <% if current_user_is_author?(blog) %>
+                <td>
+                  <ul>
+                      <li>
+                          <%= button_to edit_blog_path(blog), method: :get, class: "btn btn-primary" do %>
+                            <i class="fas fa-edit"></i>
+                          <% end %>
+                      </li>
+                      <li>
+                        <%= button_to blog, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger", title: "Destroy" do %>
+                          <i class="fas fa-trash-alt"></i>
+                        <% end %>
+                      </li>
+                  </ul>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @blogs %>
+    </div>
+  </div>
+</div>

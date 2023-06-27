@@ -38,3 +38,7 @@ en:
     welcome: "Welcome to our website!"
     thank: "Thank you for signing up"
     welcome_subject: "Welcome to My App"
+
+  message:
+      hello: "Hello world"
+

@@ -73,3 +73,4 @@ end
 gem "devise", "~> 4.1"
 gem "activejob"
 gem "i18n"
+gem "activejob"

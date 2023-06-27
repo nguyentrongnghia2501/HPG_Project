@@ -30,5 +30,15 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  views:
+    setting: "Setting"
+    home: "Home"
+  mailer:
+    title: "Welcome Email"
+    welcome: "Welcome to our website!"
+    thank: "Thank you for signing up"
+    welcome_subject: "Welcome to My App"
+
   message:
       hello: "Hello world"
+

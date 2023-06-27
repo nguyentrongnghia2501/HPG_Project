@@ -16,8 +16,16 @@
             <th>
               <%= sort_link(@q, :active, 'Active') %>
             </th>
-            <th>Poster</th>
-            <th>Function</th>
+            <th>
+              <span>
+                <%= I18n.t("views.blog.poster")%>
+              </span>
+            </th>
+            <th>
+              <span>
+                <%= I18n.t("views.blog.function")%>
+              </span>
+            </th>
             <th>
               <%= search_form_for @q, url: root_path, class: "d-flex" do |f| %>
                 <%= f.search_field :title_cont, class: "form-control me-2", placeholder: "Search", aria: { label: "Search" } %>
@@ -33,18 +41,18 @@
               <td><%= blog.title %></td>
               <td><%= blog.description %></td>
               <td>
-                  <% if blog.active == true %>
+                  <% if blog.active %>
                     <i class="fa-solid fa-earth-americas"></i>
                   <% else %>
                     <i class="fa-solid fa-lock"></i>
                   <% end %>
               </td>
-              <td><%= User.find_by(id: blog.user_id).email %></td>
-              <% if current_user.id == blog.user_id %>
+              <td><%= display_user_email(blog) %></td>
+              <% if current_user_is_author?(blog) %>
                 <td>
                   <ul>
                       <li>
-                          <%= button_to edit_blog_path(blog),method: :get, class: "btn btn-primary" do %>
+                          <%= button_to edit_blog_path(blog), method: :get, class: "btn btn-primary" do %>
                             <i class="fas fa-edit"></i>
                           <% end %>
                       </li>

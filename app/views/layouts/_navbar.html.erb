@@ -8,12 +8,12 @@
         </li>
         <% if current_user %>
           <li class="nav-item">
-            <a class="nav-link" href="/blogs/new">New BLog</a>
+            <a class="nav-link" href="/blogs/new"><%= I18n.t("views.title_new")%></a>
           </li>
         <% end %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Settings
+            <%= I18n.t("views.setting")%>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <% if current_user %>

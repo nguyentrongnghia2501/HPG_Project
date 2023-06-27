@@ -238,6 +238,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.1)
+  i18n
   importmap-rails
   jbuilder
   letter_opener_web
